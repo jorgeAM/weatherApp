@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Location = () => (
+const Location = (props) => (
   <div>
-    <h1>Trujillo</h1>
+    <h1>{props.city}</h1>
   </div>
 );
 

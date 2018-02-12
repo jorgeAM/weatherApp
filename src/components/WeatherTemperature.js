@@ -1,8 +1,10 @@
 import React from 'react';
+import WeatherIcons from 'react-weathericons';
 
-const WeatherTemperature = () => (
+const WeatherTemperature = (props) => (
   <div>
-    <span>12 C°</span>
+    <WeatherIcons name="umbrella" size="2x" />
+    <span>{`${props.temperatura} C°`}</span>
   </div>
 );
 

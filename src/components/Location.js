@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../css/style.css';
 
 const Location = (props) => (
-  <div>
+  <div className="locationCont">
     <h1>{props.city}</h1>
   </div>
 );

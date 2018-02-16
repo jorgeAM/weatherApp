@@ -3,11 +3,11 @@ import WeatherTemperature from './WeatherTemperature';
 import WeatherExtraInfo from './WeatherExtraInfo';
 import '../css/style.css';
 
-const WeatherData = () => (
+const WeatherData = (props) => (
   <div className="weatherDataCont">
-    <WeatherTemperature temperatura={11} icon={'day-hail'}/>
+    <WeatherTemperature temperatura={props.temperatura} icon={'day-hail'}/>
     <br/>
-    <WeatherExtraInfo humedad={80} viento="10m/s"/>
+    <WeatherExtraInfo humedad={props.humedad} viento={props.viento}/>
   </div>
 );
 

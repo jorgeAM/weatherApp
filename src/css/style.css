@@ -2,6 +2,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.detalle{
+  background: grey;
+  width: 100%;
+  height: 100vh;
+}
+
 .extraInfo{
   display: block;
   font-size: 16px;
@@ -15,6 +21,7 @@
 
 .root{
   height: 45px;
+  width: 100vh;
   margin-left: 15px;
   margin-right: 15px;
   display: inline-block !important;

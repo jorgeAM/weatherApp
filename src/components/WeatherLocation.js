@@ -37,9 +37,13 @@ class WeatherLocation extends Component{
     });
   }
 
+  onWeatherLocationClick(city) {
+    console.log(city);
+  }
+
   render() {
     return (
-      <div className="root">
+      <div className="root" onClick={this.onWeatherLocationClick.bind(this, this.state.city)}>
         <Location city={this.state.city}/>
         <WeatherData temperatura={this.state.temperatura}
         humedad={this.state.humedad}

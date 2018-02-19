@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LocationList from './components/LocationList';
-import './App.css';
+import ForeCastExtended from './components/ForeCastExtended';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import './css/style.css';
 
 const cities = [
   'Lima, PE',
@@ -13,9 +15,21 @@ const cities = [
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <LocationList cities={cities}/>
-      </div>
+      <Grid fluid>
+        <Row>
+          <Col xs={12} md={6} lg={6}>
+            <div>
+              <LocationList cities={cities}/>
+            </div>
+          </Col>
+
+          <Col xs={12} md={6} lg={6}>
+            <div className="detalle">
+              <ForeCastExtended/>
+            </div>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

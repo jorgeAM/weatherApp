@@ -25,7 +25,7 @@ class App extends Component {
 
           <Col xs={12} md={6} lg={6}>
             <div className="detalle">
-              <ForeCastExtended/>
+              <ForeCastExtended city="Lima, PE"/>
             </div>
           </Col>
         </Row>

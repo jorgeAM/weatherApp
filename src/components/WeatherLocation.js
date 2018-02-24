@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Location from './Location';
 import WeatherData from './WeatherData';
 import { Button }  from 'react-materialize';
@@ -15,6 +16,7 @@ class WeatherLocation extends Component{
       temperatura: 18,
       humedad: 80,
       viento: '10m/s',
+      onWeatherLocationClick: props.onWeatherLocationClick,
     };
     this.actualizar = this.actualizar.bind(this);
   }
@@ -37,13 +39,9 @@ class WeatherLocation extends Component{
     });
   }
 
-  onWeatherLocationClick(city) {
-    console.log(city);
-  }
-
   render() {
     return (
-      <div className="root" onClick={this.onWeatherLocationClick.bind(this, this.state.city)}>
+      <div className="root" onClick={this.state.onWeatherLocationClick}>
         <Location city={this.state.city}/>
         <WeatherData temperatura={this.state.temperatura}
         humedad={this.state.humedad}
@@ -53,5 +51,10 @@ class WeatherLocation extends Component{
     );
   }
 }
+
+WeatherLocation.propTypes = {
+  city: PropTypes.string.isRequired,
+  onWeatherLocationClick: PropTypes.func,
+};
 
 export default WeatherLocation;

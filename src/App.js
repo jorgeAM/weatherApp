@@ -13,19 +13,33 @@ const cities = [
 ];
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: 'null',
+    };
+  }
+
+  ciudadElegida = city=> {
+    console.log('ciudad: ', city);
+    this.setState({
+      city: city,
+    });
+  };
+
   render() {
     return (
       <Grid fluid>
         <Row>
           <Col xs={12} md={6} lg={6}>
             <div>
-              <LocationList cities={cities}/>
+              <LocationList handleCity={this.ciudadElegida} cities={cities}/>
             </div>
           </Col>
 
           <Col xs={12} md={6} lg={6}>
             <div className="detalle">
-              <ForeCastExtended city="Lima, PE"/>
+              <ForeCastExtended city={this.state.city}/>
             </div>
           </Col>
         </Row>

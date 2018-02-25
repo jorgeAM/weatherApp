@@ -16,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: 'null',
+      city: null,
     };
   }
 
@@ -37,11 +37,12 @@ class App extends Component {
             </div>
           </Col>
 
+          {this.state.city &&
           <Col xs={12} md={6} lg={6}>
             <div className="detalle">
               <ForeCastExtended city={this.state.city}/>
             </div>
-          </Col>
+          </Col>}
         </Row>
       </Grid>
     );

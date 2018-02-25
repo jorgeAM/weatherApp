@@ -14,6 +14,10 @@
   font-weight: bold;
 }
 
+.foreCastItemData{
+  height: 50%; 
+}
+
 .foreCastTitle{
   color: white;
   text-align: center;

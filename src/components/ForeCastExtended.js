@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ForeCastItem from './ForeCastItem';
+import transformForeCast from '../services/transformForeCast';
 import '../css/style.css';
 
 const apiKey = 'f99bbd9e4959b513e9bd0d7f7356b38d';
@@ -49,6 +50,8 @@ class ForeCastExtended extends Component{
     .then(res => res.json())
     .then(rs => {
       console.log(rs);
+      const data = transformForeCast(rs);
+      console.log(data);
     });
   }
 

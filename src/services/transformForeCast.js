@@ -3,9 +3,9 @@ import 'moment/locale/es';
 
 const transformForeCast = (data) => (
   data.list.filter(item => (
-    moment.unix(item.dt).utc().hour() == 6 ||
-    moment.unix(item.dt).utc().hour() == 12 ||
-    moment.unix(item.dt).utc().hour() == 18
+    moment.unix(item.dt).utc().hour() === 6 ||
+    moment.unix(item.dt).utc().hour() === 12 ||
+    moment.unix(item.dt).utc().hour() === 18
   )).map(item => (
     {
       weekDay: moment.unix(item.dt).format('dddd'),

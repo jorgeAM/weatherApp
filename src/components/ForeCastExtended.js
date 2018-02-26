@@ -5,53 +5,39 @@ import transformForeCast from '../services/transformForeCast';
 import '../css/style.css';
 
 const apiKey = 'f99bbd9e4959b513e9bd0d7f7356b38d';
-const days = [
-  'Lunes',
-  'Martes',
-  'Miercoles',
-  'Jueves',
-  'Viernes',
-];
 
 class ForeCastExtended extends Component{
   constructor(props) {
     super(props);
     this.state = {
       city: props.city,
-      weekDay: props.weekDay,
-      hora: props.hora,
-      temperatura: null,
-      humedad: null,
-      viento: null,
+      foreCastData: null,
     };
-    console.log(this.state);
   }
 
   renderProgressBar() {
     return <h3>Cargando Pronosticos...</h3>;
   }
 
-  renderForeCastItem() {
-    return <h3>Cargando...</h3>;
-    /*
-    return days.map((day, index)=> (
+  renderForeCastItem(foreCastData) {
+    return foreCastData.map((foreCast, index)=> (
       <ForeCastItem
         key={index}
-        weekDay={day}
-        hora={10}
-        temperatura={24}
-        humedad={80}
-        viento={'15 m/s'}/>));
-          */
+        weekDay={foreCast.weekDay}
+        hora={foreCast.hora}
+        temperatura={foreCast.temperatura}
+        humedad={foreCast.humedad}
+        viento={`${foreCast.viento} m/s`}/>));
   }
 
   componentDidMount() {
     fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&appid=${apiKey}`)
     .then(res => res.json())
     .then(rs => {
-      console.log(rs);
       const data = transformForeCast(rs);
-      console.log(data);
+      this.setState({
+        foreCastData: data,
+      });
     });
   }
 
@@ -60,8 +46,8 @@ class ForeCastExtended extends Component{
       <div>
         <h2 className="foreCastTitle">Pronostico {this.props.city}</h2>
         <div>
-          {!(this.state.temperatura && this.state.humedad && this.state.viento)
-            ? this.renderProgressBar() : this.renderForeCastItem()}
+          {!(this.state.foreCastData)
+            ? this.renderProgressBar() : this.renderForeCastItem(this.state.foreCastData)}
         </div>
       </div>
     );

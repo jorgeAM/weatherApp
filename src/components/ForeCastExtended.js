@@ -30,8 +30,8 @@ class ForeCastExtended extends Component{
         viento={`${foreCast.viento} m/s`}/>));
   }
 
-  componentDidMount() {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&appid=${apiKey}`)
+  actualizarCiudad(city) {
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
     .then(res => res.json())
     .then(rs => {
       const data = transformForeCast(rs);
@@ -39,6 +39,14 @@ class ForeCastExtended extends Component{
         foreCastData: data,
       });
     });
+  }
+
+  componentDidMount() {
+    this.actualizarCiudad(this.state.city);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.actualizarCiudad(nextProps.city);
   }
 
   render() {

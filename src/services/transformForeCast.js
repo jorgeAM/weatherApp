@@ -8,7 +8,7 @@ const transformForeCast = (data) => (
     moment.unix(item.dt).utc().hour() === 18
   )).map(item => (
     {
-      weekDay: moment.unix(item.dt).format('dddd'),
+      weekDay: moment.unix(item.dt).format('ddd'),
       hora: moment.unix(item.dt).utc().hour(),
       temperatura: item.main.temp.toFixed(0) - 273,
       humedad: item.main.humidity,

@@ -5,7 +5,7 @@ import '../css/style.css';
 
 const ForeCastItem = (props)=> (
   <div>
-    <div>{props.weekDay} HORA: {props.hora}</div>
+    <div>{props.weekDay} - {props.hora} hr</div>
     <WeatherData className="foreCastItemData"
     temperatura={props.temperatura}
     humedad={props.humedad}

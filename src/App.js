@@ -32,7 +32,7 @@ class App extends Component {
       <Grid fluid>
         <Row>
           <Col xs={12} md={6} lg={6}>
-            <div>
+            <div className="lista">
               <LocationList handleCity={this.ciudadElegida} cities={cities}/>
             </div>
           </Col>

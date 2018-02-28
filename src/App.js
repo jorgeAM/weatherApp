@@ -16,7 +16,15 @@ const cities = [
 ];
 
 const store = createStore(() => {},
+
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+const setCity = value => (
+  {
+    type: 'setCity',
+    value: value,
+  }
+);
 
 class App extends Component {
   constructor(props) {
@@ -32,10 +40,7 @@ class App extends Component {
     });
 
     //ejecutar accion
-    store.dispatch({
-      type: 'setCity',
-      value: city,
-    });
+    store.dispatch(setCity(city));
   };
 
   render() {

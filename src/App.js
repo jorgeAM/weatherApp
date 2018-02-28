@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import LocationList from './components/LocationList';
 import ForeCastExtended from './components/ForeCastExtended';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+
+//importamos metodo de redux
+import { createStore } from 'redux';
 import './css/style.css';
 
 const cities = [
@@ -12,6 +15,9 @@ const cities = [
   'Piura, PE',
 ];
 
+const store = createStore(() => {},
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,9 +27,14 @@ class App extends Component {
   }
 
   ciudadElegida = city=> {
-    console.log('ciudad: ', city);
     this.setState({
       city: city,
+    });
+
+    //ejecutar accion
+    store.dispatch({
+      type: 'setCity',
+      value: city,
     });
   };
 

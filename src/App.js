@@ -4,8 +4,10 @@ import ForeCastExtended from './components/ForeCastExtended';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 //importamos metodo de redux
-import { createStore } from 'redux';
+
 import './css/style.css';
+import { store } from './store/index.js';
+import { setCity } from './actions/index.js';
 
 const cities = [
   'Lima, PE',
@@ -14,17 +16,6 @@ const cities = [
   'Trujillo, PE',
   'Piura, PE',
 ];
-
-const store = createStore(() => {},
-
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-const setCity = value => (
-  {
-    type: 'setCity',
-    value: value,
-  }
-);
 
 class App extends Component {
   constructor(props) {

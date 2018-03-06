@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import LocationList from './components/LocationList';
 import ForeCastExtended from './components/ForeCastExtended';
+import LocationListContainer from './containers/LocationListContainer';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 //importamos metodo de redux
 
 import './css/style.css';
-import { store } from './store/index.js';
-import { setCity } from './actions/index.js';
 
 const cities = [
   'Lima, PE',
@@ -25,22 +23,13 @@ class App extends Component {
     };
   }
 
-  ciudadElegida = city=> {
-    this.setState({
-      city: city,
-    });
-
-    //ejecutar accion
-    store.dispatch(setCity(city));
-  };
-
   render() {
     return (
       <Grid fluid>
         <Row>
           <Col xs={12} md={6} lg={6}>
             <div className="lista">
-              <LocationList handleCity={this.ciudadElegida} cities={cities}/>
+              <LocationListContainer cities={cities}/>
             </div>
           </Col>
 

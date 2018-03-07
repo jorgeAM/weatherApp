@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ForeCastExtended from './components/ForeCastExtended';
+import ForeCastExtendedContainer from './containers/ForeCastExtendedContainer';
 import LocationListContainer from './containers/LocationListContainer';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
@@ -16,13 +16,6 @@ const cities = [
 ];
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      city: null,
-    };
-  }
-
   render() {
     return (
       <Grid fluid>
@@ -32,13 +25,11 @@ class App extends Component {
               <LocationListContainer cities={cities}/>
             </div>
           </Col>
-
-          {this.state.city &&
           <Col xs={12} md={6} lg={6}>
             <div className="detalle">
-              <ForeCastExtended city={this.state.city}/>
+              <ForeCastExtendedContainer/>
             </div>
-          </Col>}
+          </Col>
         </Row>
       </Grid>
     );

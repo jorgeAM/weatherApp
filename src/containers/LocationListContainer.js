@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setCity } from '../actions/index.js';
 import LocationList from '../components/LocationList';
@@ -18,9 +18,9 @@ class LocationListContainer extends Component {
   }
 }
 
-LocationListContainer.PropTypes = {
-  setCity: PropTypes.func.isRequired,
-  cities: PropTypes.array.isRequired,
+LocationListContainer.propTypes = {
+  setCity: propTypes.func.isRequired,
+  cities: propTypes.array.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
